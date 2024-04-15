@@ -120,7 +120,7 @@ function getPolynom(...coeff) {
  */
 function memoize(func) {
   const cache = new Map();
-  return function (...a) {
+  return (...a) => {
     const key = a.length === 1 ? a[0] : JSON.stringify(a);
     if (cache.has(key)) {
       return cache.get(key);
@@ -147,7 +147,7 @@ function memoize(func) {
  * retryer() => 2
  */
 function retry(func, attempts) {
-  return function () {
+  return () => {
     for (let i = 0; i < attempts; i += 1) {
       try {
         return func();
